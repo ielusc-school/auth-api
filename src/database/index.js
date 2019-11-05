@@ -1,14 +1,19 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const mongoose = require('mongoose');
-const URL_MONGOATLAS = 'mongodb+srv://xpto123:xpto123@cluster0-sgcno.mongodb.net/test?retryWrites=true&w=majority'
-const mongo = process.env.MONGODB || URL_MONGOATLAS
+const mongo = process.env.DATABASE_MATLAS
+
 
 mongoose
  .connect(mongo, {
      useNewUrlParser: true,
      useUnifiedTopology: true,
+     useCreateIndex: true,
+     useFindAndModify: false,
    })
    .then(() => {
-      console.log('connected with MongoATlas');
+      console.log(`Connected with MongoAtlas ${mongo}`);
    })
    .catch(() => {
        console.log('error this connexion');

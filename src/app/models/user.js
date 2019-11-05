@@ -17,6 +17,14 @@ const UserSchema = new mongoose.Schema({
     required: true,
     select: false
   },
+  passwordResetToken: { // atribuindo nova coluna na tabela
+    type: String,
+    select: false,
+  },
+  passwordResetExpires: { // atribuindo nova coluna
+    type: Date,
+    select: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
